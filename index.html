@@ -1,17 +1,34 @@
 <!DOCTYPE html>
-<title></title>
-<header></header>
+<head>
+    <title>To Do List</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
 <body>
 
     <h2>To Do List</h2>
-    <ul>
-        <li><strong>Pay bills</strong></li>
-        <li><strong>Read a book</strong></li>
-        <li><strong>Meet Anna</strong></li>
-        <li><strong>Wash dishes</strong></li>
+    <input id="inputText" type="text" placeholder="Enter a task...">
+    <button onclick="addListItem()">Add</button>
+    <ul id="myList">
+        <li>Pay bills</li>
+        <li>Read a book</li>
+        <li>Meet Anna</li>
+        <li>Wash dishes</li>
     </ul>
 
+    <script>
+         function addListItem() {
 
-
+            var li = document.createElement('li');
+            var inputValue = document.getElementById('inputText').value;
+            var t = document.createTextNode(inputValue);
+            li.appendChild(t);
+            if (inputValue === '') {
+                alert("You must write something!");
+            } else {
+                document.getElementById('myList').appendChild(li);
+            }
+            document.getElementById('inputText').value = "";
+        }
+    </script>
 </body>
 </html>
